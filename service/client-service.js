@@ -45,12 +45,9 @@ const table = document.querySelector("[data-table]")
 // Update   -----   PUT / PATCH
 // Delete   -----   DELETE
 
-const listaClientes = () => {
-  //  Abre una conexion con esta url   ------    Esta la recibe y la transforma en formato json y luego tiene acceso a data
-  return fetch ("http://localhost:3000/perfil").then (respuesta => {
-    return respuesta.json()
-  })
-};
+//  Abre una conexion con esta url   ------    Esta la recibe y la transforma en formato json y luego tiene acceso a data
+const listaClientes = () => fetch ("http://localhost:3000/perfil").then ((respuesta) => respuesta.json());
+
 
 //En la parte del response, es decir la respuesta que tenemos, una vez que sale de lo que viene siendo nuestra promesa, se va a convertir en data.
 
