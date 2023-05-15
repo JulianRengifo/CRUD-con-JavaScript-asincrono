@@ -1,7 +1,7 @@
 
 import { clientServices } from "../service/client-service.js";
 
-const crearNuevaLinea = (nombre, email) => {
+const crearNuevaLinea = (nombre, email, id) => {
     
     //Bueno, en este caso yo lo que quiero es generar el tr, el puro tr. Lo voy a crear, ya puedo eliminarlo 
     const linea = document.createElement("tr")
@@ -24,6 +24,7 @@ const crearNuevaLinea = (nombre, email) => {
                   <button
                     class="simple-button simple-button--delete"
                     type="button"
+                    id = "${id}"
                   >
                     Eliminar
                   </button>
@@ -33,6 +34,16 @@ const crearNuevaLinea = (nombre, email) => {
           `;
 
             linea.innerHTML = contenido;
+
+            //Boton eliminar usando la propiedad id
+            const btn = linea.querySelector("button");
+            btn.addEventListener("click", () => {
+              const id = btn.id;
+              //Pasamos el identificador que queremos eliminar en este caso usamos id
+              clientServices.eliminarCliente(id).then(respuesta =>{
+                console.log(respuesta);
+              }).catch((err) => alert ("Ocurrio un error"))
+            });
             return linea
 };
 
@@ -43,11 +54,12 @@ const table = document.querySelector("[data-table]")
 
 clientServices.listaClientes(). then((data) => {
     // tenemos data, que es un arreglo, y los arreglos, como sabes, tienen métodos. El que nosotros vamos a utilizar es .forEach.
-    data.forEach(perfil => {
+    data.forEach(({nombre, email, id}) => {
       //Y lo que quiero entonces es: créame entonces aquí una nueva línea, despues de crearlo lo agregamos
-      const nuevaLinea = crearNuevaLinea(perfil.nombre, perfil.email);
+      const nuevaLinea = crearNuevaLinea(nombre, email, id);
       // Para agregarlo usamos es table.appendChild(nuevaLinea).
       table.appendChild(nuevaLinea);
   });
 })
 .catch((error) => alert("Ocurrio un error"));  //Por si existe un error
+

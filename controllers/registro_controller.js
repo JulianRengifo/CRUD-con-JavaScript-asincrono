@@ -11,11 +11,11 @@ formulario.addEventListener("submit", (evento) => {
 
     const nombre = document.querySelector("[data-nombre]").value // Con los data attributes vamos a obtener la informacion de los inputs
     const email = document.querySelector("[data-email]").value
-    console.log(nombre, "-", email);
+
 
     // Al ser esto una promesa se puede trabajar con then
     // Crear cliente nombre , email
-    clientServices.crearCLiente(nombre, email).then( respuesta => {  
+    clientServices.crearCLiente(nombre, email).then( () => {  
         //Vamos entonces a decir window, que es un método que está disponible que es justamente toda la ventana o toda la pantalla. Window.location, que es la localización.
         // .href. Lo que vamos a hacer aquí es decirle cuál es la ruta que nosotros queremos seguir o el archivo que queremos llamar. 
         // Esto para redireccionar la pagina cuando se cree un registro nuevo aparezca registro completado

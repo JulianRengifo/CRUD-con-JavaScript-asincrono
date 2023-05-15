@@ -1,24 +1,9 @@
 {
   "perfil": [
     {
-      "nombre": "Harland Lohora",
-      "email": "harland@alura.com",
-      "id": 1
-    },
-    {
       "nombre": "julian rengifo",
       "email": "julian.rengifocor@campusucc.edu.co",
-      "id": "4a751451-9578-4a05-9682-b76bd9367d75"
-    },
-    {
-      "nombre": "DANIEL EDUARDO RENGIFO CASTAÑEDA",
-      "email": "darengifo7080@gmail.com",
-      "id": "d2644684-aee0-468a-a461-0d8c98c595f9"
-    },
-    {
-      "nombre": "Nelly Cortes",
-      "email": "givdispluy32@gmail.com",
-      "id": "4c8b772e-1cce-4952-ac0c-6a0898781b81"
+      "id": "d67f60c8-d909-4004-b1c3-32a5060dbcfe"
     }
   ]
 }

@@ -31,9 +31,19 @@ const crearCLiente = (nombre, email) => {
 };
 
 
+const eliminarCliente = (id) => {
+  // Se pasa el primer parametro que es el link y como segundo parametro el metodo delete ("eliminar")
+  // Dentro de la url inyectamos el id
+  return fetch (`http://localhost:3000/perfil/${id}`, 
+    {method: "DELETE",
+  });  
+};
+
+
 export const clientServices = {
   listaClientes,
   crearCLiente,
+  eliminarCliente,
 };
 
 
