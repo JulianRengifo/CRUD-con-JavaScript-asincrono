@@ -15,7 +15,7 @@ const crearNuevaLinea = (nombre, email, id) => {
               <ul class="table__button-control">
                 <li>
                   <a
-                    href="../screens/editar_cliente.html"
+                    href="../screens/editar_cliente.html?id=${id}" 
                     class="simple-button simple-button--edit"
                     >Editar</a
                   >
@@ -32,6 +32,9 @@ const crearNuevaLinea = (nombre, email, id) => {
               </ul>
             </td>
           `;
+
+          /* En la linea href="../screens/editar_cliente.html ? id=${id}"  a través de este identificador es que vamos 
+          a poder consultar a nuestro Json server, para que nos regrese la información solamente de ese cliente.  */
 
             linea.innerHTML = contenido;
 

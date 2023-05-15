@@ -40,10 +40,18 @@ const eliminarCliente = (id) => {
 };
 
 
+const editarCliente = (id) => {
+  // No se requiere especificar el metodo para obtener la informacion debido a que fetch lo hace por defeto
+  return fetch(`http://localhost:3000/perfil/${id}`).then((respuesta) => 
+  respuesta.json());
+};
+
+
 export const clientServices = {
   listaClientes,
   crearCLiente,
   eliminarCliente,
+  editarCliente,  
 };
 
 
