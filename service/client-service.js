@@ -46,12 +46,30 @@ const editarCliente = (id) => {
   respuesta.json());
 };
 
+// El id es unico para cada usuario
+const actualizarCliente =  (nombre, email, id) => {
+  return fetch(`http://localhost:3000/perfil/${id}`, {
+    method: "PUT",
+    //tenemos la parte de los encabezados y le vamos a decir el tipo de aplicación que vamos a mandar o el tipo de archivo. 
+    //para eso usamos Content-Type": "application/json
+    headers: {
+      "Content-Type": "application/json"
+    },
+    /*  la transferencia o el cómo se comunica el HTTP es a través de texto. Necesitamos entonces convertir ese objeto 
+    en algo con lo que pueda trabajar HTTP, para eso usamos JSON.stringify */
+    body: JSON.stringify({nombre, email}),
+  })
+  .then((respuesta) => respuesta)
+  .catch((error) => console.log(error))
+};
+
 
 export const clientServices = {
   listaClientes,
   crearCLiente,
   eliminarCliente,
   editarCliente,  
+  actualizarCliente,
 };
 
 
